@@ -1,14 +1,15 @@
 module debounce(
 	input i_clk,
-	input i_btn,
-	output o_btn
+	input [WIDTH - 1:0] i_btn,
+	output [WIDTH - 1:0] o_btn
 	);
+	parameter WIDTH = 1;
 	parameter WAIT = 18;
-	logic sync = 0;
-	logic cur_state = 0;
-	logic prev_state = 0;
+	logic[WIDTH - 1:0] sync = 0;
+	logic[WIDTH - 1:0] cur_state = 0;
+	logic[WIDTH - 1:0] prev_state = 0;
 	logic[WAIT - 1:0] counter = 0;
-	logic debounced;
+	logic[WIDTH - 1:0] debounced;
 
 	always_ff @(posedge i_clk)
 		{prev_state, cur_state, sync} <= {cur_state, sync, i_btn};

@@ -17,4 +17,4 @@ calc.edif: calc.sv ALU.sv
 	yosys -p 'read_verilog -sv calc.sv; opt; synth_xilinx -edif calc.edif'
 
 clean:
-	zsh --extendedglob -c "rm ^(*.(sv|ucf)|makefile)"
+	zsh --extendedglob -c "rm ^(*.(sv|ucf|dot)|makefile)"

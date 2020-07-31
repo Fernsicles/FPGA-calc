@@ -1,0 +1,12 @@
+digraph {
+	S_OP
+	S_REG_SEL
+	S_REG_EDIT
+	S_X_REG_SEL
+	S_Y_REG_SEL
+	S_RES_REG_SEL
+	S_RES
+	S_OP -> S_REG_SEL -> S_X_REG_SEL -> S_Y_REG_SEL -> S_RES_REG_SEL -> S_RES -> S_OP [label="btn8"]
+	S_REG_SEL -> S_REG_EDIT -> S_REG_SEL [label="btn9"]
+	
+}
