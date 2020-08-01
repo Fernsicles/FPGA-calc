@@ -14,7 +14,7 @@ calc.ngd: calc.edif calc.ucf
 	ngdbuild -p 6slx9tqg144-2 -uc calc.ucf calc.edif
 
 calc.edif: calc.sv ALU.sv
-	yosys -p 'read_verilog -sv calc.sv; opt; synth_xilinx -edif calc.edif'
+	yosys -p 'read_verilog -sv calc.sv; hierarchy; proc; opt; synth_xilinx -edif calc.edif'
 
 clean:
-	zsh --extendedglob -c "rm ^(*.(sv|ucf|dot)|makefile)"
+	zsh --extendedglob -c "rm ^(*.(sv|ucf|dot|svg|md)|makefile)"
