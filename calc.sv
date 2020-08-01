@@ -9,14 +9,14 @@ module top(
 
 	typedef enum logic[2:0] {S_OP, S_REG_SEL, S_REG_EDIT, S_X_REG_SEL, S_Y_REG_SEL, S_RES_REG_SEL, S_RES} states;
 	states state;
-	logic[2:0] op = 0;
+	logic[2:0] op;
 	logic[7:0] x;
 	logic[7:0] y;
 	logic[7:0] res;
-	logic[2:0] x_reg = 0;
-	logic[2:0] y_reg = 0;
-	logic[2:0] res_reg = 0;
-	logic[2:0] sel_reg = 0;
+	logic[2:0] x_reg;
+	logic[2:0] y_reg;
+	logic[2:0] res_reg;
+	logic[2:0] sel_reg;
 
 	logic[7:0] reg0;
 	logic[7:0] reg1;
@@ -30,7 +30,7 @@ module top(
 	logic[10:0] prev_btn;
 	logic[10:0] button_events;
 	wire[10:0] btn_debounced;
-	logic[11:0] led_state = ~0;
+	logic[11:0] led_state;
 
 	debounce #(11) debouncer0(i_clk, i_btn, btn_debounced);
 	ALU alu0(op, x, y, res);

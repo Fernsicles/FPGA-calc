@@ -5,10 +5,10 @@ module debounce(
 	);
 	parameter WIDTH = 1;
 	parameter WAIT = 18;
-	logic[WIDTH - 1:0] sync = 0;
-	logic[WIDTH - 1:0] cur_state = 0;
-	logic[WIDTH - 1:0] prev_state = 0;
-	logic[WAIT - 1:0] counter = 0;
+	logic[WIDTH - 1:0] sync;
+	logic[WIDTH - 1:0] cur_state;
+	logic[WIDTH - 1:0] prev_state;
+	logic[WAIT - 1:0] counter;
 	logic[WIDTH - 1:0] debounced;
 
 	always_ff @(posedge i_clk)
